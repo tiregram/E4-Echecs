@@ -61,7 +61,7 @@ public:
             convertP2S(std::make_pair<int, int>(j, i))); // TODO
 
         if (it == this->pieces.end()) {
-          std::cout << "X";
+          std::cout << " ";
         } else {
           std::cout << it->second->getSymb();
         }
