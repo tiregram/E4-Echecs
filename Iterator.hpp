@@ -6,9 +6,9 @@ class IteratorChessAction {
 public:
   std::vector<ChessAction> actions;
 
-  IteratorChessAction(){}
+  IteratorChessAction();
 
-  void add(ChessAction& ca) { this->actions.push_back(ca); };
+  void add(ChessAction& ca);
 
-  virtual ~IteratorChessAction(){}
+  virtual ~IteratorChessAction();
 };
