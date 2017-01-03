@@ -1,27 +1,20 @@
 
 #include "ChessAction.hpp"
-#include "Plat.hpp"
 #include "Piece.hpp"
+#include "Plat.hpp"
 
-int main() {
+int main(int argc, char *argv[]) {
+
+  if (argc != 2) {
+    std::cout<< "no file"<< std::endl;
+    return 1;
+  }
   Plat pl;
+  IteratorChessAction ica(argv[1]);
 
-  IteratorChessAction ica;
-  auto a0 = ChessAction("a2", "a3");
-  auto a0p = ChessAction("a7", "a6");
-  auto a1 = ChessAction("e1", "e2");
-  auto a2 = ChessAction("d8", "d5");
-  auto a3 = ChessAction("a1", "a4");
-  auto a4 = ChessAction("a8", "a4");
+  std::cout << "________START_______"
+            << "\n";
 
-  ica.add(a0);
-  ica.add(a0p);
-  ica.add(a1);
-  ica.add(a2);
-  ica.add(a3);
-  ica.add(a4);
-
-  std::cout << "________START_______"  << "\n";
   pl.print();
 
   try {
@@ -30,7 +23,8 @@ int main() {
     std::cout << a << "\n";
   }
 
-  std::cout << "________END_______" << "\n";
+  std::cout << "________END_______"
+            << "\n";
 
   return 0;
 }

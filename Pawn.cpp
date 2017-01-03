@@ -2,7 +2,7 @@
 #include <utility>
 #include <math.h>
 
-Pawn::Pawn(bool isBlack, Plat* pl) : Piece("Pawn", 'r', isBlack, pl) {}
+Pawn::Pawn(bool isBlack, Plat* pl) : Piece("Pawn", 'p', isBlack, pl) {}
 
 bool Pawn::check(const ChessAction &a) const {
   return true ;
