@@ -6,9 +6,10 @@ IteratorChessAction::IteratorChessAction() {}
 IteratorChessAction::IteratorChessAction(std::string nameFile) {
   std::ifstream filechess(nameFile);
   std::string line;
+  int i = 1;
 
   while (std::getline(filechess, line)) {
-    add(line);
+    add(i++,line);
     // std::cout << " ->" << line << "\n";
   }
   filechess.close();
@@ -16,8 +17,8 @@ IteratorChessAction::IteratorChessAction(std::string nameFile) {
 
 void IteratorChessAction::add(ChessAction &ca) { this->actions.push_back(ca); }
 
-void IteratorChessAction::add(std::string action) {
-  this->actions.push_back(ChessAction(action));
+void IteratorChessAction::add(int l, std::string action) {
+  this->actions.push_back(ChessAction(l,action));
 }
 
 IteratorChessAction::~IteratorChessAction() {}

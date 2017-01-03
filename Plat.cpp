@@ -1,4 +1,3 @@
-
 #include "Plat.hpp"
 #include "King.hpp"
 #include "Piece.hpp"
@@ -7,8 +6,8 @@
 
 #include "Bishop.hpp"
 #include "Knight.hpp"
-#include "Rook.hpp"
 #include "Pawn.hpp"
+#include "Rook.hpp"
 
 Plat::Plat() {
 
@@ -29,7 +28,6 @@ Plat::Plat() {
   pieces["g7"] = std::make_shared<Pawn>(true, this);
   pieces["h2"] = std::make_shared<Pawn>(false, this);
   pieces["h7"] = std::make_shared<Pawn>(true, this);
-
 
   // Bishop
   pieces["c1"] = std::make_shared<Bishop>(false, this);
@@ -88,31 +86,39 @@ void Plat::play(IteratorChessAction &ica) {
   bool whiteTurn = true;
 
   for (auto &a : ica.actions) {
-    std::cout << " __________ " << (whiteTurn ? "WHITE" : "BLACK")
-              << " __________"
-              << "\n";
-    std::cout << "---------- " << a.from << " to " << a.to << " ----------"
-              << "\n";
+    //    std::cout << " __________ " << (whiteTurn ? "WHITE" : "BLACK")
+    //         << " __________"
+    //          << "\n";
+    // std::cout << "---------- " << a.from << " to " << a.to << " ----------"
+    //          << "\n";
     if (!this->hasPieceAt(a.from)) {
-      throw "NO PIECE AT " + a.from;
+      //throw "NO PIECE AT " + a.from;
+      std::cout << a.l << "\n";
+      std::abort();
     }
 
     auto p = getPieceAt(a.from);
 
     if (p->isBlack && whiteTurn) {
-      throw "White try to play black from " + a.from + " to " + a.to;
+      //throw "White try to play black from " + a.from + " to " + a.to;
+      std::cout << a.l << "\n";
+      std::abort();
     }
 
     if (not p->isBlack && not whiteTurn) {
-      throw "White try to play black from " + a.from + " to " + a.to;
+      //throw "White try to play black from " + a.from + " to " + a.to;
+      std::cout << a.l << "\n";
+      std::abort();
     }
 
     if (!p->check(a)) {
-      throw "ACTION PROHIBITED " + a.from + " to " + a.to;
+      //throw "ACTION PROHIBITED " + a.from + " to " + a.to;
+      std::cout << a.l << "\n";
+      std::abort();
     }
 
     move(p, a);
-    this->print();
+    //    this->print();
     whiteTurn = !whiteTurn;
   }
 }

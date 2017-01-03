@@ -5,7 +5,7 @@
 
 Piece::Piece(std::string p_name, char car, bool isBlack, Plat *p_pl)
   : name(p_name), car(car), isBlack(isBlack), plate(p_pl) {
-  std::cout << "Creation:" << p_name << "\n";
+  //  std::cout << "Creation:" << p_name << "\n";
 }
 
 
@@ -19,7 +19,9 @@ char Piece::getSymb(){
   }
 }
 
-Piece::~Piece() { std::cout << "Destruction:" << name << "\n"; }
+Piece::~Piece() {
+  //std::cout << "Destruction:" << name << "\n";
+}
 
 bool Piece::TrajectoireLibre(std::string from, std::string to) const {
   std::pair<int, int> fromII = convertS2P(from);

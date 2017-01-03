@@ -12,19 +12,17 @@ int main(int argc, char *argv[]) {
   Plat pl;
   IteratorChessAction ica(argv[1]);
 
-  std::cout << "________START_______"
-            << "\n";
-
-  pl.print();
+  //  std::cout << "________START_______"
+  //         << "\n";
 
   try {
     pl.play(ica);
   } catch (std::string a) {
     std::cout << a << "\n";
   }
-
-  std::cout << "________END_______"
-            << "\n";
+  pl.print();
+  //  std::cout << "________END_______"
+  //        << "\n";
 
   return 0;
 }

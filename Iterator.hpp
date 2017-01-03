@@ -11,6 +11,6 @@ public:
   IteratorChessAction( std::string nameFile );
 
   void add(ChessAction& ca);
-  void add(std::string action);
+  void add(int l, std::string action);
   virtual ~IteratorChessAction();
 };
